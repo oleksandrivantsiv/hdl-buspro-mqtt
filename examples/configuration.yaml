@@ -1,0 +1,594 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+light:
+  - platform: mqtt
+    name: "Office_Spotlights_Group_1"
+    manufacturer: "HDL"
+    unique_id: "1.14.1"
+    command_topic: "set/1.14.1"
+    state_topic: "state/1.14.1"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Office_Spotlights_Group_2"
+    manufacturer: "HDL"
+    unique_id: "1.14.2"
+    command_topic: "set/1.14.2"
+    state_topic: "state/1.14.2"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Office_Pendant_lamps"
+    manufacturer: "HDL"
+    unique_id: "1.14.3"
+    command_topic: "set/1.14.3"
+    state_topic: "state/1.14.3"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Office_Bra_Left"
+    manufacturer: "HDL"
+    unique_id: "1.14.4"
+    command_topic: "set/1.14.4"
+    state_topic: "state/1.14.4"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Office_Bra_Right"
+    manufacturer: "HDL"
+    unique_id: "1.14.5"
+    command_topic: "set/1.14.5"
+    state_topic: "state/1.14.5"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Living_Room_Lustre"
+    manufacturer: "HDL"
+    unique_id: "1.12.1"
+    command_topic: "set/1.12.1"
+    state_topic: "state/1.12.1"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Living_Room_Pendant_Lamps"
+    manufacturer: "HDL"
+    unique_id: "1.12.2"
+    command_topic: "set/1.12.2"
+    state_topic: "state/1.12.2"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Living_Room_Spotlights_1"
+    manufacturer: "HDL"
+    unique_id: "1.12.3"
+    command_topic: "set/1.12.3"
+    state_topic: "state/1.12.3"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Living_Room_Spotlights_2"
+    manufacturer: "HDL"
+    unique_id: "1.12.4"
+    command_topic: "set/1.12.4"
+    state_topic: "state/1.12.4"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Living_Room_LED"
+    manufacturer: "HDL"
+    unique_id: "1.11.9"
+    command_topic: "set/1.11.9"
+    state_topic: "state/1.11.9"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Living_Room_Extract"
+    manufacturer: "HDL"
+    unique_id: "1.11.3"
+    command_topic: "set/1.11.3"
+    state_topic: "state/1.11.3"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Terrace"
+    manufacturer: "HDL"
+    unique_id: "1.12.5"
+    command_topic: "set/1.12.5"
+    state_topic: "state/1.12.5"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Hall_Wall"
+    manufacturer: "HDL"
+    unique_id: "1.12.6"
+    command_topic: "set/1.12.6"
+    state_topic: "state/1.12.6"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Hall_Spotlight_Entrance"
+    manufacturer: "HDL"
+    unique_id: "1.12.8"
+    command_topic: "set/1.12.8"
+    state_topic: "state/1.12.8"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Hall_Spotlight"
+    manufacturer: "HDL"
+    unique_id: "1.12.9"
+    command_topic: "set/1.12.9"
+    state_topic: "state/1.12.9"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "WC"
+    manufacturer: "HDL"
+    unique_id: "1.12.7"
+    command_topic: "set/1.12.7"
+    state_topic: "state/1.12.7"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "WC_Extract"
+    manufacturer: "HDL"
+    unique_id: "1.11.4"
+    command_topic: "set/1.11.4"
+    state_topic: "state/1.11.4"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Bedroom_Spotlight_1"
+    manufacturer: "HDL"
+    unique_id: "1.13.1"
+    command_topic: "set/1.13.1"
+    state_topic: "state/1.13.1"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Bedroom_Spotlight_2"
+    manufacturer: "HDL"
+    unique_id: "1.13.2"
+    command_topic: "set/1.13.2"
+    state_topic: "state/1.13.2"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Bedroom_Pendant_Lamps_Left"
+    manufacturer: "HDL"
+    unique_id: "1.13.3"
+    command_topic: "set/1.13.3"
+    state_topic: "state/1.13.3"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Bedroom_Pendant_Lamps_Right"
+    manufacturer: "HDL"
+    unique_id: "1.13.4"
+    command_topic: "set/1.13.4"
+    state_topic: "state/1.13.4"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Wardrobe_Spotlight"
+    manufacturer: "HDL"
+    unique_id: "1.13.5"
+    command_topic: "set/1.13.5"
+    state_topic: "state/1.13.5"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Wardrobe_Bra"
+    manufacturer: "HDL"
+    unique_id: "1.13.6"
+    command_topic: "set/1.13.6"
+    state_topic: "state/1.13.6"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Wardrobe_LED"
+    manufacturer: "HDL"
+    unique_id: "1.11.12"
+    command_topic: "set/1.11.12"
+    state_topic: "state/1.11.12"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Children_Spotlight_Left"
+    manufacturer: "HDL"
+    unique_id: "1.13.7"
+    command_topic: "set/1.13.7"
+    state_topic: "state/1.13.7"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Children_Spotlight_Right"
+    manufacturer: "HDL"
+    unique_id: "1.13.8"
+    command_topic: "set/1.13.8"
+    state_topic: "state/1.13.8"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Children_Spotlight_Center"
+    manufacturer: "HDL"
+    unique_id: "1.13.9"
+    command_topic: "set/1.13.9"
+    state_topic: "state/1.13.9"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Children_Bra_Left"
+    manufacturer: "HDL"
+    unique_id: "1.13.10"
+    command_topic: "set/1.13.10"
+    state_topic: "state/1.13.10"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Children_Bra_Right"
+    manufacturer: "HDL"
+    unique_id: "1.13.11"
+    command_topic: "set/1.13.11"
+    state_topic: "state/1.13.11"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Children_Pendant_Lamps"
+    manufacturer: "HDL"
+    unique_id: "1.13.12"
+    command_topic: "set/1.13.12"
+    state_topic: "state/1.13.12"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Bathroom_Spotlight_1"
+    manufacturer: "HDL"
+    unique_id: "1.12.10"
+    command_topic: "set/1.12.10"
+    state_topic: "state/1.12.10"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Bathroom_Spotlight_2"
+    manufacturer: "HDL"
+    unique_id: "1.12.11"
+    command_topic: "set/1.12.11"
+    state_topic: "state/1.12.11"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Bathroom_LED"
+    manufacturer: "HDL"
+    unique_id: "1.11.10"
+    command_topic: "set/1.11.10"
+    state_topic: "state/1.11.10"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Stairs_Spotlight"
+    manufacturer: "HDL"
+    unique_id: "1.11.7"
+    command_topic: "set/1.11.7"
+    state_topic: "state/1.11.7"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Stairs"
+    manufacturer: "HDL"
+    unique_id: "1.11.8"
+    command_topic: "set/1.11.8"
+    state_topic: "state/1.11.8"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Stairs_LED"
+    manufacturer: "HDL"
+    unique_id: "1.11.11"
+    command_topic: "set/1.11.11"
+    state_topic: "state/1.11.11"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+climate:
+  - platform: mqtt
+    name: "Office_Floor_Heating"
+    manufacturer: "HDL"
+    unique_id: "1.31.1"
+    modes:
+      - "off"
+      - "heat"
+    min_temp: 5.0
+    max_temp: 35.0
+    temperature_unit: "C"
+    mode_command_topic: "set/mode/1.31.1"
+    mode_state_topic: "state/mode/1.31.1"
+    temperature_command_topic: "set/target_temperature/1.31.1"
+    temperature_state_topic: "state/target_temperature/1.31.1"
+    current_temperature_topic: "state/current_temperature/1.31.1"
+    precision: 1.0
+
+  - platform: mqtt
+    name: "Office_Floor_Radiator"
+    manufacturer: "HDL"
+    unique_id: "1.32.1"
+    modes:
+      - "off"
+      - "heat"
+    min_temp: 5.0
+    max_temp: 35.0
+    temperature_unit: "C"
+    mode_command_topic: "set/mode/1.32.1"
+    mode_state_topic: "state/mode/1.32.1"
+    temperature_command_topic: "set/target_temperature/1.32.1"
+    temperature_state_topic: "state/target_temperature/1.32.1"
+    current_temperature_topic: "state/current_temperature/1.32.1"
+    precision: 1.0
+
+  - platform: mqtt
+    name: "Living_Room_Floor_Heating"
+    manufacturer: "HDL"
+    unique_id: "1.31.2"
+    modes:
+      - "off"
+      - "heat"
+    min_temp: 5.0
+    max_temp: 35.0
+    temperature_unit: "C"
+    mode_command_topic: "set/mode/1.31.2"
+    mode_state_topic: "state/mode/1.31.2"
+    temperature_command_topic: "set/target_temperature/1.31.2"
+    temperature_state_topic: "state/target_temperature/1.31.2"
+    current_temperature_topic: "state/current_temperature/1.31.2"
+    precision: 1.0
+
+  - platform: mqtt
+    name: "Living_Room_Radiator"
+    manufacturer: "HDL"
+    unique_id: "1.32.2"
+    modes:
+      - "off"
+      - "heat"
+    min_temp: 5.0
+    max_temp: 35.0
+    temperature_unit: "C"
+    mode_command_topic: "set/mode/1.32.2"
+    mode_state_topic: "state/mode/1.32.2"
+    temperature_command_topic: "set/target_temperature/1.32.2"
+    temperature_state_topic: "state/target_temperature/1.32.2"
+    current_temperature_topic: "state/current_temperature/1.32.2"
+    precision: 1.0
+
+  - platform: mqtt
+    name: "Living_Room_Vent"
+    manufacturer: "HDL"
+    unique_id: "1.32.3"
+    modes:
+      - "off"
+      - "heat"
+    min_temp: 5.0
+    max_temp: 35.0
+    temperature_unit: "C"
+    mode_command_topic: "set/mode/1.32.3"
+    mode_state_topic: "state/mode/1.32.3"
+    temperature_command_topic: "set/target_temperature/1.32.3"
+    temperature_state_topic: "state/target_temperature/1.32.3"
+    current_temperature_topic: "state/current_temperature/1.32.3"
+    precision: 1.0
+
+  - platform: mqtt
+    name: "Hall_Floor_Heating"
+    manufacturer: "HDL"
+    unique_id: "1.31.3"
+    modes:
+      - "off"
+      - "heat"
+    min_temp: 5.0
+    max_temp: 35.0
+    temperature_unit: "C"
+    mode_command_topic: "set/mode/1.31.3"
+    mode_state_topic: "state/mode/1.31.3"
+    temperature_command_topic: "set/target_temperature/1.31.3"
+    temperature_state_topic: "state/target_temperature/1.31.3"
+    current_temperature_topic: "state/current_temperature/1.31.3"
+    precision: 1.0
+
+  - platform: mqtt
+    name: "Bath_Room_Floor_Heating"
+    manufacturer: "HDL"
+    unique_id: "1.31.4"
+    modes:
+      - "off"
+      - "heat"
+    min_temp: 5.0
+    max_temp: 35.0
+    temperature_unit: "C"
+    mode_command_topic: "set/mode/1.31.4"
+    mode_state_topic: "state/mode/1.31.4"
+    temperature_command_topic: "set/target_temperature/1.31.4"
+    temperature_state_topic: "state/target_temperature/1.31.4"
+    current_temperature_topic: "state/current_temperature/1.31.4"
+    temperature_state_template: "{{ value }}"
+    value_template: "{{ value }}"
+    precision: 1.0
+
+  - platform: mqtt
+    name: "Bath_Room_Radiator"
+    manufacturer: "HDL"
+    unique_id: "1.31.5"
+    modes:
+      - "off"
+      - "heat"
+    min_temp: 5.0
+    max_temp: 35.0
+    temperature_unit: "C"
+    mode_command_topic: "set/mode/1.31.5"
+    mode_state_topic: "state/mode/1.31.5"
+    temperature_command_topic: "set/target_temperature/1.31.5"
+    temperature_state_topic: "state/target_temperature/1.31.5"
+    current_temperature_topic: "state/current_temperature/1.31.5"
+    precision: 1.0
+
+  - platform: mqtt
+    name: "Vault_Radiator"
+    manufacturer: "HDL"
+    unique_id: "1.31.6"
+    modes:
+      - "off"
+      - "heat"
+    min_temp: 5.0
+    max_temp: 35.0
+    temperature_unit: "C"
+    mode_command_topic: "set/mode/1.31.6"
+    mode_state_topic: "state/mode/1.31.6"
+    temperature_command_topic: "set/target_temperature/1.31.6"
+    temperature_state_topic: "state/target_temperature/1.31.6"
+    current_temperature_topic: "state/current_temperature/1.31.6"
+    precision: 1.0
+
+  - platform: mqtt
+    name: "Bedroom_Radiator"
+    manufacturer: "HDL"
+    unique_id: "1.32.4"
+    modes:
+      - "off"
+      - "heat"
+    min_temp: 5.0
+    max_temp: 35.0
+    temperature_unit: "C"
+    mode_command_topic: "set/mode/1.32.4"
+    mode_state_topic: "state/mode/1.32.4"
+    temperature_command_topic: "set/target_temperature/1.32.4"
+    temperature_state_topic: "state/target_temperature/1.32.4"
+    current_temperature_topic: "state/current_temperature/1.32.4"
+    precision: 1.0
+
+  - platform: mqtt
+    name: "Bedroom_Vent"
+    manufacturer: "HDL"
+    unique_id: "1.32.5"
+    modes:
+      - "off"
+      - "heat"
+    min_temp: 5.0
+    max_temp: 35.0
+    temperature_unit: "C"
+    mode_command_topic: "set/mode/1.32.5"
+    mode_state_topic: "state/mode/1.32.5"
+    temperature_command_topic: "set/target_temperature/1.32.5"
+    temperature_state_topic: "state/target_temperature/1.32.5"
+    current_temperature_topic: "state/current_temperature/1.32.5"
+    precision: 1.0
+
+  - platform: mqtt
+    name: "Child_Radiator"
+    manufacturer: "HDL"
+    unique_id: "1.32.6"
+    modes:
+      - "off"
+      - "heat"
+    min_temp: 5.0
+    max_temp: 35.0
+    temperature_unit: "C"
+    mode_command_topic: "set/mode/1.32.6"
+    mode_state_topic: "state/mode/1.32.6"
+    temperature_command_topic: "set/target_temperature/1.32.6"
+    temperature_state_topic: "state/target_temperature/1.32.6"
+    current_temperature_topic: "state/current_temperature/1.32.6"
+    precision: 1.0
+
+sensor:
+  - platform: mqtt
+    manufacturer: "HDL"
+    unique_id: "1.31.1"
+    name: "Office_Temperature"
+    state_topic: "state/target_temperature_sensor/1.31.1"
+    device_class: "temperature"
+
+  - platform: mqtt
+    manufacturer: "HDL"
+    unique_id: "1.31.2"
+    name: "Living_Room_Temperature"
+    state_topic: "state/target_temperature_sensor/1.31.2"
+    device_class: "temperature"
+
+  - platform: mqtt
+    manufacturer: "HDL"
+    unique_id: "1.31.3"
+    name: "Hall_Temperature"
+    state_topic: "state/target_temperature_sensor/1.31.3"
+    device_class: "temperature"
+
+  - platform: mqtt
+    manufacturer: "HDL"
+    unique_id: "1.31.4"
+    name: "Bath_Room_Temperature"
+    state_topic: "state/target_temperature_sensor/1.31.4"
+    device_class: "temperature"
+
+  - platform: mqtt
+    manufacturer: "HDL"
+    unique_id: "1.31.6"
+    name: "Vault_Temperature"
+    state_topic: "state/target_temperature_sensor/1.31.6"
+    device_class: "temperature"
+
+  - platform: mqtt
+    manufacturer: "HDL"
+    unique_id: "1.32.4"
+    name: "Bedroom_Temperature"
+    state_topic: "state/target_temperature_sensor/1.32.4"
+    device_class: "temperature"
+
+  - platform: mqtt
+    manufacturer: "HDL"
+    unique_id: "1.32.6"
+    name: "Child_Temperature"
+    state_topic: "state/target_temperature_sensor/1.32.6"
+    device_class: "temperature"
