@@ -258,6 +258,8 @@ class HDLFloorHeatingChannel(HDLChannel):
 
     def update(self, oper_code, content):
         with self.lock:
+            logger.debug(
+                f"Received state update {self.parent.subnet_id}.{self.parent.device_id}.{self.channel_id}")
             if oper_code == hdl_packets.HDLOperCode.ReadTemperatureResponse.value:
                 if self.temperature_sensor_state_topic:
                     self.state_publisher.publish(self.temperature_sensor_state_topic, str(float(content.temperature)))

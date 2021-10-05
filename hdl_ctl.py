@@ -51,7 +51,7 @@ def main(hdl_host, hdl_port, mqtt_host, mqtt_port, verbose, home_assistant_cfg):
     devices = {}
 
     for dev in config_file['light']:
-        if dev['platform'] != 'mqtt' or dev['manufacturer'] != 'HDL':
+        if dev['platform'] != 'mqtt':
             logger.error(f"Unsupported device {dev}")
             continue
         subnet_id, device_id, channel = [int(i) for i in dev['unique_id'].split('.')]
