@@ -414,7 +414,7 @@ class HDLRelay(HDLDevice):
 
     def periodic_update(self):
         self.request_update()
-        self.state_publisher.schedule_delayed_event(60, self.periodic_update)
+        self.state_publisher.schedule_delayed_event(10, self.periodic_update)
 
     def run(self):
         self.periodic_update()
@@ -456,7 +456,10 @@ class ComponentCtl:
             logger.error(f"Unknown exception: {e}")
 
     def execute_operation(self, subnet_id, device_id, channel, *args, **kwargs):
+        logger.debug(f"Schedule operation execution {subnet_id}.{device_id}.{channel}: args {args} kwargs {kwargs}")
+
         def _execute_operation_callback():
+            logger.debug(f"Operation execution callback {subnet_id}.{device_id}.{channel}: args {args} kwargs {kwargs}")
             dev_id = subnet_id, device_id
             if dev_id not in self.devices:
                 return
@@ -478,9 +481,13 @@ class ComponentCtl:
         self.mqtt_client.register_command(subnet_id, device_id, channel_id, command_topic)
 
     def send_packet(self, data):
-        with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as sock:
-            sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-            sock.sendto(data, (self.hdl_host, self.hdl_port))
+        try:
+            with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as sock:
+                sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+                sock.sendto(data, (self.hdl_host, self.hdl_port))
+        except Exception as ex:
+            logger.error(f"Failed to send packet: {ex}")
+            raise ex
 
     def run(self):
         threads = [

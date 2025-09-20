@@ -35,7 +35,7 @@ def read_config_file(path_to_file):
 
 
 @click.command()
-@click.option('--hdl-host', type=ipaddress.ip_address, default='0.0.0.0')
+@click.option('--hdl-host', type=ipaddress.ip_address, required=True)
 @click.option('--hdl-port', type=int, default=6000)
 @click.option('--mqtt-host', type=ipaddress.ip_address, default='127.0.0.1')
 @click.option('--mqtt-port', type=int, default=1883)
