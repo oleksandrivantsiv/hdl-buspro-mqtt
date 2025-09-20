@@ -1,3 +1,10 @@
+homeassistant:
+  external_url: http://192.168.88.99:8123
+  internal_url: http://192.168.88.99:8123
+  allowlist_external_dirs:
+    - "/media"
+  media_dirs:
+    media: "/media"
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
@@ -272,6 +279,30 @@ light:
     unique_id: "1.11.10"
     command_topic: "set/1.11.10"
     state_topic: "state/1.11.10"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Vault_Extract_1"
+    unique_id: "1.11.6"
+    command_topic: "set/1.11.6"
+    state_topic: "state/1.11.6"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Vault_Extract_2"
+    unique_id: "1.11.1"
+    command_topic: "set/1.11.1"
+    state_topic: "state/1.11.1"
+    payload_off: "OFF"
+    payload_on: "ON"
+
+  - platform: mqtt
+    name: "Vault_Extract_3"
+    unique_id: "1.11.2"
+    command_topic: "set/1.11.2"
+    state_topic: "state/1.11.2"
     payload_off: "OFF"
     payload_on: "ON"
 
