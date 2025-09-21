@@ -14,12 +14,18 @@ class HDLListener(asyncio.DatagramProtocol):
         self.host = host
         self.port = port
         self.components_ctl = components_ctl
+        self.hdl_host = self.components_ctl.get_hdl_host()
 
     def connection_made(self, transport):
         self.transport = transport
 
     def datagram_received(self, data, addr):
         try:
+            ip, _ = addr
+            if ip != self.hdl_host:
+                self.components_ctl.update_hdl_host(ip)
+                self.hdl_host = ip
+
             self.components_ctl.update(data)
         except hdl_component.HDLValidationError as e:
             logger.error(f"Update error: {e}")

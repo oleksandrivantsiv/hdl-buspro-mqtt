@@ -433,6 +433,13 @@ class ComponentCtl:
         self.hdl_listener = hdl_listener.HDLListener('0.0.0.0', hdl_port, self)
         self.mqtt_client = mqtt_client.MqttClient(mqtt_host, mqtt_port, self)
 
+    def get_hdl_host(self):
+        return self.hdl_host
+
+    def update_hdl_host(self, ip):
+        logger.info(f"HDL host IP change detected. Updating host to {ip}")
+        self.hdl_host = ip
+
     def add_device(self, device):
         dev_id = device.get_id()
         if dev_id in self.devices:
