@@ -1,8 +1,28 @@
 #!/usr/bin/python
 
-import crc16
 import enum
+import struct
 from scapy.all import *
+
+
+def crc16xmodem(data):
+    """Pure-Python CRC-16/XMODEM implementation.
+    Accepts bytes or str, returns 16-bit int.
+    """
+    if isinstance(data, str):
+        data = data.encode()
+
+    crc = 0x0000
+    for b in data:
+        if isinstance(b, str):
+            b = ord(b)
+        crc ^= (b << 8)
+        for _ in range(8):
+            if crc & 0x8000:
+                crc = ((crc << 1) ^ 0x1021) & 0xFFFF
+            else:
+                crc = (crc << 1) & 0xFFFF
+    return crc
 
 
 class HDLOperCode(enum.Enum):
@@ -50,7 +70,7 @@ class HDLSmartBus(Packet):
 
         if self.crc is None:
             data = p[HDLSmartBus.preamble_len:-HDLSmartBus.crc_len]
-            crc = crc16.crc16xmodem(data)
+            crc = crc16xmodem(data)
             p = p[:-2] + struct.pack("!H", crc)
 
         return p + pay

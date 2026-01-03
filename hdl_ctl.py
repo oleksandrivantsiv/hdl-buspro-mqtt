@@ -8,7 +8,9 @@ import yaml
 
 import hdl_component
 
-logging.basicConfig()
+
+import sys
+logging.basicConfig(stream=sys.stdout)
 logging.root.setLevel(hdl_component.logging.INFO)
 
 logger = hdl_component.logging.getLogger(__name__)
